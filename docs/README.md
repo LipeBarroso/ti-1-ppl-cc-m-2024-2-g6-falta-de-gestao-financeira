@@ -42,7 +42,16 @@ A documentação do projeto é estruturada da seguinte forma:
     - [Requisitos não Funcionais](#requisitos-não-funcionais)
   - [Projeto de Interface](#projeto-de-interface)
     - [Wireframes](#wireframes)
-        - [TELA XPTO ⚠️ EXEMPLO ⚠️](#tela-xpto-️-exemplo-️)
+      - [Login](#login)
+      - [Criar Conta](#criar-conta)
+      - [Registros](#registros)
+      - [Adicionar Registro](#adicionar-registro)
+      - [Criar Categoria](#criar-categoria)
+      - [NavBar Menu](#navbar-menu)
+      - [Evolução](#evolução)
+      - [Metas](#metas)
+      - [Criar Meta](#criar-meta)
+      - [Editar Meta](#editar-meta)
     - [User Flow](#user-flow)
     - [Protótipo Interativo](#protótipo-interativo)
 - [Metodologia](#metodologia)
@@ -192,40 +201,41 @@ Artefatos relacionados com a interface e a interacão do usuário na proposta de
 
 Estes são os protótipos de telas do sistema.
 
-**✳️✳️✳️ COLOQUE AQUI OS PROTÓTIPOS DE TELAS COM TÍTULO E DESCRIÇÃO ✳️✳️✳️**
+#### Login
+<img src='images/FigmaImages/LoginPage.jpg' alt='Login' width='300' height='550'>
 
-##### TELA XPTO ⚠️ EXEMPLO ⚠️
+#### Criar Conta
+<img src='images/FigmaImages/CriarConta.jpg' alt='Criar conta' width='300' height='550'>
 
-Descrição para a tela XPTO
+#### Registros
+<img src='images/FigmaImages/Registros.jpg' alt='Registros' width='300' height='550'>
 
-![Exemplo de wireframe](images/exemplo-wireframe.png)
+#### Adicionar Registro
+<img src='images/FigmaImages/AdicionarRegistro.jpg' alt='Adicionar Registro' width='300' height='550'>
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Wireframes são protótipos das telas da aplicação usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante ao layout de elementos fundamentais na interface.
->
-> **Orientações**:
->
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
+#### Criar Categoria
+<img src='images/FigmaImages/CriarCategoria.jpg' alt='Criar categoria' width='300' height='550'>
+
+#### NavBar Menu
+<img src='images/FigmaImages/NavBar.jpg' alt='NavBar' width='300' height='550'>
+
+#### Evolução
+<img src='images/FigmaImages/Evolução.jpg' alt='Evolução' width='300' height='550'>
+
+#### Metas
+<img src='images/FigmaImages/Metas.jpg' alt='Metas' width='300' height='550'>
+
+#### Criar Meta
+<img src='images/FigmaImages/CriarMeta.jpg' alt='Criar Meta' width='300' height='550'>
+
+#### Editar Meta
+<img src='images/FigmaImages/EditarMeta.jpg' alt='Editar Meta' width='300' height='550'>
 
 ### User Flow
 
-**✳️✳️✳️ COLOQUE AQUI O DIAGRAMA DE FLUXO DE TELAS ✳️✳️✳️**
+![Userflow](images/FigmaImages/Userflow.png)
 
-![Exemplo de fluxo de telas](images/exemplo-userflow.png)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor mapear todo fluxo de telas do site ou app. Essa técnica funciona para alinhar os caminhos e as possíveis ações que o usuário pode fazer junto com os membros de sua equipe.
->
-> **Orientações**:
->
-> - [User Flow: O Quê É e Como Fazer?](https://medium.com/7bits/fluxo-de-usu%C3%A1rio-user-flow-o-que-%C3%A9-como-fazer-79d965872534)
-> - [User Flow vs Site Maps](http://designr.com.br/sitemap-e-user-flow-quais-as-diferencas-e-quando-usar-cada-um/)
-> - [Top 25 User Flow Tools &amp; Templates for Smooth](https://www.mockplus.com/blog/post/user-flow-tools)
 
 ### Protótipo Interativo
 
