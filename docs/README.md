@@ -66,10 +66,10 @@ A documentação do projeto é estruturada da seguinte forma:
 - [Solução Implementada](#solução-implementada)
   - [Vídeo do Projeto](#vídeo-do-projeto)
   - [Funcionalidades](#funcionalidades)
-        - [Funcionalidade 1 - Cadastro de Contatos ⚠️ EXEMPLO ⚠️](#funcionalidade-1---cadastro-de-contatos-️-exemplo-️)
+        - [Funcionalidade 1 - Cadastro de Contatos](#funcionalidade-1---cadastro-de-contatos)
   - [Estruturas de Dados](#estruturas-de-dados)
-        - [Estrutura de Dados - Contatos   ⚠️ EXEMPLO ⚠️](#estrutura-de-dados---contatos---️-exemplo-️)
-        - [Estrutura de Dados - Usuários  ⚠️ EXEMPLO ⚠️](#estrutura-de-dados---usuários--️-exemplo-️)
+        - [Estrutura de Dados - Contatos](#estrutura-de-dados---contatos)
+        - [Estrutura de Dados - Usuários](#estrutura-de-dados---usuários)
   - [Módulos e APIs](#módulos-e-apis)
 - [Referências](#referências)
 
@@ -245,17 +245,12 @@ Estes são os protótipos de telas do sistema.
 
 ### Protótipo Interativo
 
-**✳️✳️✳️ COLOQUE AQUI UM IFRAME COM SEU PROTÓTIPO INTERATIVO ✳️✳️✳️**
-
-✅ [Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/4hd6091?emb=1&iosapp=false&frameless=false)  ⚠️ EXEMPLO ⚠️
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Um protótipo interativo apresenta o projeto de interfaces e permite ao usuário navegar pelas funcionalidades como se estivesse lidando com o software pronto. Utilize as mesmas ferramentas de construção de wireframes para montagem do seu protótipo interativo. Inclua o link para o protótipo interativo do projeto.
+https://marvelapp.com/prototype/10ie6d3b/screen/95600300
 
 # Metodologia
 
-Usamos a metodologia de divisão de tarefas e encontros regulares para alinhamento do andamento do projeto. Durante as reuniões houve a divisão dos papeis de cada um conforme a aptidão de cada integrante do grupo.
+Durante o desenvolvimento do projeto, utilizamos diversas ferramentas para otimizar o processo e garantir a eficiência das entregas. O Miro foi utilizado como plataforma principal para o processo de Design Thinking, permitindo a criação de fluxos de ideias e o desenvolvimento colaborativo de soluções. Para o versionamento e armazenamento do código, adotamos o GitHub, que proporcionou um ambiente centralizado e acessível para o gerenciamento do código-fonte e o acompanhamento das modificações feitas pela equipe. Na idealização e desenvolvimento da interface do usuário, empregamos o Figma, garantindo agilidade e facilidade durante o processo criativo. Por fim, o MarvelApp foi usado para a criação do protótipo interativo, permitindo que os usuários experimentassem a interface da aplicação antes de sua implementação completa.
+
 
 ## Ferramentas
 
@@ -265,13 +260,10 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 | --------------------------- | ---------- | -------------------------------------------------- |
 | Processo de Design Thinking | Miro       | https://miro.com/app/board/uXjVKn-VohI=/           |
 | Repositório de código     | GitHub     | https://github.com/ICEI-PUC-Minas-PPLCC-TI/ti-1-ppl-cc-m-2024-2-g6-falta-de-gestao-financeira    |
-| Hospedagem do site          | Render     | https://site.render.com/XXXXXXX ⚠️ EXEMPLO ⚠️ |
-| Protótipo Interativo       | MarvelApp  | https://marvelapp.com/XXXXXXX ⚠️ EXEMPLO ⚠️   |
+| Hospedagem do site          | Figma    | https://www.figma.com/design/iOqomTUN7adzGyKTcTEzQV/G6---Falta-de-Gest%C3%A3o-Financeira |
+| Protótipo Interativo       | MarvelApp  | https://marvelapp.com/prototype/10ie6d3b/screen/95600300   |
 |                             |            |                                                    |
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Liste as ferramentas empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível. Inclua itens como: (1) Editor de código, (2) )ferramentas de comunicação, (3) )ferramentas de diagramação, (4) )plataformas de hospedagem, entre outras.
 
 ## Gerenciamento do Projeto
 
@@ -299,85 +291,22 @@ Esta seção apresenta todos os detalhes da solução criada no projeto.
 
 ## Vídeo do Projeto
 
-O vídeo a seguir traz uma apresentação do problema que a equipe está tratando e a proposta de solução. ⚠️ EXEMPLO ⚠️
-
-[![Vídeo do projeto](images/video.png)](https://www.youtube.com/embed/70gGoFyGeqQ)
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> O video de apresentação é voltado para que o público externo possa conhecer a solução. O formato é livre, sendo importante que seja apresentado o problema e a solução numa linguagem descomplicada e direta.
->
-> Inclua um link para o vídeo do projeto.
+O vídeo a seguir traz uma apresentação do problema que a equipe está tratando e a proposta de solução. 
 
 ## Funcionalidades
 
 Esta seção apresenta as funcionalidades da solução.Info
 
-##### Funcionalidade 1 - Cadastro de Contatos ⚠️ EXEMPLO ⚠️
-
-Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
-
-* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
-* **Instruções de acesso:**
-  * Abra o site e efetue o login
-  * Acesse o menu principal e escolha a opção Cadastros
-  * Em seguida, escolha a opção Contatos
-* **Tela da funcionalidade**:
-
-![Tela de Funcionalidade](images/exemplo-funcionalidade.png)
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente cada uma das funcionalidades que a aplicação fornece tanto para os usuários quanto aos administradores da solução.
->
-> Inclua, para cada funcionalidade, itens como: (1) titulos e descrição da funcionalidade; (2) Estrutura de dados associada; (3) o detalhe sobre as instruções de acesso e uso.
+##### Funcionalidade 1 - Cadastro de Contatos 
 
 ## Estruturas de Dados
 
 Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.Info
 
-##### Estrutura de Dados - Contatos   ⚠️ EXEMPLO ⚠️
+##### Estrutura de Dados - Contatos   
 
-Contatos da aplicação
+##### Estrutura de Dados - Usuários  
 
-```json
-  {
-    "id": 1,
-    "nome": "Leanne Graham",
-    "cidade": "Belo Horizonte",
-    "categoria": "amigos",
-    "email": "Sincere@april.biz",
-    "telefone": "1-770-736-8031",
-    "website": "hildegard.org"
-  }
-  
-```
-
-##### Estrutura de Dados - Usuários  ⚠️ EXEMPLO ⚠️
-
-Registro dos usuários do sistema utilizados para login e para o perfil do sistema
-
-```json
-  {
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    email: "admin@abc.com",
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    login: "admin",
-    nome: "Administrador do Sistema",
-    senha: "123"
-  }
-```
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente as estruturas de dados utilizadas na solução tanto para dados utilizados na essência da aplicação quanto outras estruturas que foram criadas para algum tipo de configuração
->
-> Nomeie a estrutura, coloque uma descrição sucinta e apresente um exemplo em formato JSON.
->
-> **Orientações:**
->
-> * [JSON Introduction](https://www.w3schools.com/js/js_json_intro.asp)
-> * [Trabalhando com JSON - Aprendendo desenvolvimento web | MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/JSON)
 
 ## Módulos e APIs
 
@@ -385,32 +314,10 @@ Esta seção apresenta os módulos e APIs utilizados na solução
 
 **Images**:
 
-* Unsplash - [https://unsplash.com/](https://unsplash.com/) ⚠️ EXEMPLO ⚠️
 
 **Fonts:**
 
-* Icons Font Face - [https://fontawesome.com/](https://fontawesome.com/) ⚠️ EXEMPLO ⚠️
-
 **Scripts:**
 
-* jQuery - [http://www.jquery.com/](http://www.jquery.com/) ⚠️ EXEMPLO ⚠️
-* Bootstrap 4 - [http://getbootstrap.com/](http://getbootstrap.com/) ⚠️ EXEMPLO ⚠️
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente os módulos e APIs utilizados no desenvolvimento da solução. Inclua itens como: (1) Frameworks, bibliotecas, módulos, etc. utilizados no desenvolvimento da solução; (2) APIs utilizadas para acesso a dados, serviços, etc.
 
 # Referências
-
-As referências utilizadas no trabalho foram:
-
-* SOBRENOME, Nome do autor. Título da obra. 8. ed. Cidade: Editora, 2000. 287 p ⚠️ EXEMPLO ⚠️
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
->
-> **Orientações**:
->
-> - [Formato ABNT](https://www.normastecnicas.com/abnt/trabalhos-academicos/referencias/)
-> - [Referências Bibliográficas da ABNT](https://comunidade.rockcontent.com/referencia-bibliografica-abnt/)
