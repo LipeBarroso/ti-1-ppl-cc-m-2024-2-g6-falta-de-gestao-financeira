@@ -321,3 +321,8 @@ Esta seção apresenta os módulos e APIs utilizados na solução
 
 
 # Referências
+DANTAS, A. Estudo sobre o perfil socioeconômico de motoristas de aplicativo no Brasil. Revista Brasileira de Economia, v. 75, n. 2, p. 123-137, 2021.
+
+INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA (IBGE). Pesquisa de Orçamentos Familiares: Despesas familiares e endividamento. Brasília: IBGE, 2020. Disponível em: https://www.ibge.gov.br. Acesso em: 18 set. 2024.
+
+SERVIÇO DE PROTEÇÃO AO CRÉDITO (SPC). Estudo sobre hábitos de consumo e controle financeiro. São Paulo: SPC, 2019.
