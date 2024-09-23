@@ -1,6 +1,6 @@
 # Introdução
 
-* **Projeto:** ***Falta de Gestão financeira***
+* **Projeto:** ***FinUp (Financial Upgrade)***
 * **Repositório GitHub:** [Grupo 6 - Falta de Gestão Financeira](https://github.com/ICEI-PUC-Minas-PPLCC-TI/ti-1-ppl-cc-m-2024-2-g6-falta-de-gestao-financeira)
 * **Membros da equipe:**
   * [Adriano Araújo Domingos dos Santos](https://github.com/adrianoaraujods)
@@ -255,7 +255,7 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 
 Divisão de papéis no grupo e apresentação da estrutura da ferramenta de controle de tarefas (Kanban).
 
-![Exemplo de Kanban](images/exemplo-kanban.png)
+![Kanban](images/Kanban.png)
 
 
 # Referências
