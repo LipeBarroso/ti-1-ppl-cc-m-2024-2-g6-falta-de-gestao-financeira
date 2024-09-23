@@ -57,17 +57,9 @@ A documentação do projeto é estruturada da seguinte forma:
 - [Metodologia](#metodologia)
   - [Ferramentas](#ferramentas)
   - [Gerenciamento do Projeto](#gerenciamento-do-projeto)
-- [Solução Implementada](#solução-implementada)
-  - [Vídeo do Projeto](#vídeo-do-projeto)
-  - [Funcionalidades](#funcionalidades)
-        - [Funcionalidade 1 - Cadastro de Contatos](#funcionalidade-1---cadastro-de-contatos)
-  - [Estruturas de Dados](#estruturas-de-dados)
-        - [Estrutura de Dados - Contatos](#estrutura-de-dados---contatos)
-        - [Estrutura de Dados - Usuários](#estrutura-de-dados---usuários)
-  - [Módulos e APIs](#módulos-e-apis)
 - [Referências](#referências)
 
-✅ [Documentação de Design Thinking (MIRO)](files/processo-dt.pdf)
+[Documentação de Design Thinking (MIRO)](files/PPLCC-M%20-%20G6%20-%20Falta%20de%20gestão%20financeira.pdf)
 
 # Contexto
 
@@ -173,23 +165,23 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | ------ | ---------------------------------------------------------- | ---------- |
 | RF-001 | Anotar receitas e despesas, com possibilidade de categorização. | ALTA       |
 | RF-002 | Visualizar todas as entradas e saídas registradas. | MÉDIA     |
-| RF-003 | Definir metas e objetivos de economias, podendo estipular a quantidade e a duração. |  |
-| RF-004 | Definir um limite de gasto, e verificar se está dentro dele. |  |
-| RF-005 | Projeções de valores economizados, um gráfico mostrando o valor que será economizado em relação ao tempo. |  |
-| RF-006 | Comparação entre intervalos de tempo, meses, semanas e anos. |  |
-| RF-007 | . Área de ensino, disponibilizando conteúdo sobre economia e saúde financeira. |  |
-| RF-008 | Definição de receitas e despesas recorrentes de forma automática. |  |
-| RF-009 | Importar dados de planilhas (arquivos .csv) |  |
-| RF-010 | Exportar dados para arquivo .csv |  |
+| RF-003 | Definir metas e objetivos de economias, podendo estipular a quantidade e a duração. | ALTA |
+| RF-004 | Definir um limite de gasto, e verificar se está dentro dele. | ALTA |
+| RF-005 | Projeções de valores economizados, um gráfico mostrando o valor que será economizado em relação ao tempo. | ALTA |
+| RF-006 | Comparação entre intervalos de tempo, meses, semanas e anos. | MÉDIA |
+| RF-007 | Área de ensino, disponibilizando conteúdo sobre economia e saúde financeira. | MÉDIA |
+| RF-008 | Definição de receitas e despesas recorrentes de forma automática. | ALTA |
+| RF-009 | Importar dados de planilhas (arquivos .csv) | MÉDIA |
+| RF-010 | Exportar dados para arquivo .csv | MÉDIA |
 
 ### Requisitos não Funcionais
 
 | ID    | Descrição do Requisito                                                              | Prioridade |
 | ------- | ------------------------------------------------------------------------------------- | ---------- |
-| RNF-001 | Sistema de conta, com acesso através de credenciais. |      |
-| RNF-002 | Disponibilidade 24 horas, todos os dias da semana. |       |
-| RNF-003 | Acesso gratuito, salvo recursos que indicam o contrário. |  |
-| RNF-004 | Aplicação Web, possibilitando o uso em qualquer dispositivo e em qualquer hora e local com acesso à internet. |  |
+| RNF-001 | Sistema de conta, com acesso através de credenciais. | ALTA |
+| RNF-002 | Disponibilidade 24 horas, todos os dias da semana. | ALTA |
+| RNF-003 | Acesso gratuito, salvo recursos que indicam o contrário. | ALTA |
+| RNF-004 | Aplicação Web, possibilitando o uso em qualquer dispositivo e em qualquer hora e local com acesso à internet. | MÉDIA |
 
 
 
@@ -254,9 +246,9 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 | --------------------------- | ---------- | -------------------------------------------------- |
 | Processo de Design Thinking | Miro       | https://miro.com/app/board/uXjVKn-VohI=/           |
 | Repositório de código     | GitHub     | https://github.com/ICEI-PUC-Minas-PPLCC-TI/ti-1-ppl-cc-m-2024-2-g6-falta-de-gestao-financeira    |
-| Hospedagem do site          | Figma    | https://www.figma.com/design/iOqomTUN7adzGyKTcTEzQV/G6---Falta-de-Gest%C3%A3o-Financeira |
+| Wireframes e Userflow         | Figma    | https://www.figma.com/design/iOqomTUN7adzGyKTcTEzQV/G6---Falta-de-Gest%C3%A3o-Financeira |
 | Protótipo Interativo       | MarvelApp  | https://marvelapp.com/prototype/10ie6d3b/screen/95600300   |
-|                             |            |                                                    |
+
 
 
 ## Gerenciamento do Projeto
@@ -264,54 +256,6 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 Divisão de papéis no grupo e apresentação da estrutura da ferramenta de controle de tarefas (Kanban).
 
 ![Exemplo de Kanban](images/exemplo-kanban.png)
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Nesta parte do documento, você deve apresentar  o processo de trabalho baseado nas metodologias ágeis, a divisão de papéis e tarefas, as ferramentas empregadas e como foi realizada a gestão de configuração do projeto via GitHub.
->
-> Coloque detalhes sobre o processo de Design Thinking e a implementação do Framework Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
->
-> **Orientações**:
->
-> - [Sobre Projects - GitHub Docs](https://docs.github.com/pt/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
-> - [Gestão de projetos com GitHub | balta.io](https://balta.io/blog/gestao-de-projetos-com-github)
-> - [(460) GitHub Projects - YouTube](https://www.youtube.com/playlist?list=PLiO7XHcmTsldZR93nkTFmmWbCEVF_8F5H)
-> - [11 Passos Essenciais para Implantar Scrum no seu Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
-
-# Solução Implementada
-
-Esta seção apresenta todos os detalhes da solução criada no projeto.
-
-## Vídeo do Projeto
-
-O vídeo a seguir traz uma apresentação do problema que a equipe está tratando e a proposta de solução. 
-
-## Funcionalidades
-
-Esta seção apresenta as funcionalidades da solução.Info
-
-##### Funcionalidade 1 - Cadastro de Contatos 
-
-## Estruturas de Dados
-
-Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.Info
-
-##### Estrutura de Dados - Contatos   
-
-##### Estrutura de Dados - Usuários  
-
-
-## Módulos e APIs
-
-Esta seção apresenta os módulos e APIs utilizados na solução
-
-**Images**:
-
-
-**Fonts:**
-
-**Scripts:**
 
 
 # Referências
