@@ -1,0 +1,46 @@
+div>.form {
+  background: var(--card);
+  border-radius: 1rem;
+  max-width: 680px;
+  margin-inline: auto;
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form__header {
+  text-align: center;
+}
+
+.form__field {
+  display: grid;
+  gap: .5rem;
+}
+
+.form__field__label {
+  font-size: var(--text-xl);
+}
+
+.form__field__input {
+  padding-block: .25rem;
+  padding-inline: .5rem;
+  font-size: var(--text-lg);
+}
+
+.form__footer {
+  display: grid;
+  gap: .5rem;
+}
+
+.form__submit {
+  background: var(--foreground);
+  color: var(--background);
+  margin-left: auto;
+  width: 100%;
+  max-width: 256px;
+  padding: .5rem;
+}

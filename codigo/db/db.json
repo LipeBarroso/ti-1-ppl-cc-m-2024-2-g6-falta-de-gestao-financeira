@@ -1,25 +1,41 @@
 {
-  "usuarios": [
+  "users": [
     {
-      "id": 1,
-      "login": "admin",
-      "senha": "123",
-      "nome": "Administrador do Sistema",
-      "email": "admin@abc.com"
+      "name": "admin",
+      "email": "admin@admin.com",
+      "password": "123",
+      "id": 1
     },
     {
-      "id": 2,
-      "login": "user",
-      "senha": "123",
-      "nome": "Usuario Comum",
-      "email": "user@abc.com"
-    },
+      "name": "Fulano",
+      "email": "fulano@gmail.com",
+      "password": "123",
+      "id": 2
+    }
+  ],
+  "entries": [
     {
-      "login": "rommel",
-      "senha": "123",
-      "nome": "Rommel",
-      "email": "rommel@gmail.com",
-      "id": 3
+      "ownerId": 1,
+      "label": "Pão de Queijo",
+      "category": "Mercado",
+      "type": "income",
+      "date": "1727825483351",
+      "value": 100.01
+    }
+  ],
+  "categories": [
+    {
+      "ownerId": 1,
+      "label": "Mercado",
+      "type": "income"
+    }
+  ],
+  "goals": [
+    {
+      "ownerId": 1,
+      "label": "Padaria",
+      "type": "income",
+      "category": "Mercado"
     }
   ]
 }
