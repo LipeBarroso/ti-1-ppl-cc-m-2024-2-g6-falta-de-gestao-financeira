@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FinUp</title>
+    <title>FinUp | Início</title>
     <link rel="stylesheet" href="assets/css/globals.css" />
     <link rel="stylesheet" href="assets/css/navbar.css" />
   </head>
@@ -33,7 +33,28 @@
           <span>FinUp</span>
         </a>
 
-        <button id="logout-button">Sair</button>
+        <div class="navbar__content">
+          <input id="navbar-menu-toggle" type="checkbox" />
+
+          <ul class="navbar__list">
+            <li class="navbar__list__item navbar__list__item--active">
+              <a class="navbar__link navbar__link--active" href="/"
+                >Registros</a
+              >
+            </li>
+            <li class="navbar__list__item">
+              <a class="navbar__link" href="./goals.html">Metas</a>
+            </li>
+            <li class="navbar__list__item">
+              <a class="navbar__link" href="./dashboard.html">Evolução</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="navbar__buttons">
+          <button id="logout-button">Sair</button>
+          <div class="navbar__menu"></div>
+        </div>
       </nav>
     </header>
 
