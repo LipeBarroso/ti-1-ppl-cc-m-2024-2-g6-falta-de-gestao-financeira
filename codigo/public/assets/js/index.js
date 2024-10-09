@@ -1,4 +1,8 @@
 import { auth, logout } from "./auth.js";
+import { createCategoryFormEvent } from "./categories.js";
+import { createPopupEvents } from "./popup.js";
+
+if (!auth()) window.location.replace("./login.html");
 
 const logoutButton = document.getElementById("logout-button");
 
@@ -8,4 +12,6 @@ logoutButton.addEventListener("click", (event) => {
   logout();
 });
 
-if (!auth()) window.location.replace("./login.html");
+createCategoryFormEvent();
+
+createPopupEvents();
