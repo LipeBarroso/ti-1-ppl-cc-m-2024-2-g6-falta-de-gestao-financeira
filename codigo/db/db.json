@@ -11,8 +11,8 @@
     {
       "id": 1,
       "ownerId": 1,
+      "categoryId": 1,
       "label": "Pão de Queijo",
-      "category": "Mercado",
       "type": "income",
       "date": "1727825483351",
       "value": 100.01
@@ -30,9 +30,11 @@
     {
       "id": 1,
       "ownerId": 1,
+      "categoryId": 1,
+      "createdAt": "1727825483351",
+      "updatedAt": "1727825483351",
       "label": "Padaria",
-      "type": "income",
-      "category": "Mercado"
+      "type": "income"
     }
   ]
 }
