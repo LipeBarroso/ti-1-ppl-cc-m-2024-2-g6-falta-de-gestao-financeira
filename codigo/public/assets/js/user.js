@@ -73,4 +73,14 @@ export async function updateUserById(userId, { name }) {
   return updatedUser;
 }
 
-export async function deleteUserById() {}
+export async function deleteUserById(userId) {
+  const res = await fetch(`/users/${userId}`, {
+    method: "DELETE",
+  });
+
+  if (!res.ok) {
+    console.error("Erro ao excluir o usuário.");
+  }
+
+  return res.ok;
+}
