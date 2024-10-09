@@ -1,4 +1,4 @@
-div>.form {
+.card>.form {
   background: var(--card);
   border-radius: 1rem;
   max-width: 680px;
@@ -31,15 +31,61 @@ div>.form {
   font-size: var(--text-lg);
 }
 
+.form__field__tab {
+  background-color: var(--input);
+  border-radius: .5rem;
+  display: flex;
+}
+
+.form__field__tab__item {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .5rem;
+}
+
+.form__field__tab__label {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: .25rem;
+  padding: .25rem;
+  font-size: var(--text-lg);
+  cursor: pointer;
+}
+
+.form__field__tab__input:checked~.form__field__tab__label {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.form__field__tab__input {
+  appearance: none;
+  position: absolute;
+  inset: 0;
+  background-color: transparent;
+  z-index: -1;
+}
+
 .form__footer {
-  display: grid;
+  display: flex;
+  justify-content: end;
   gap: .5rem;
+}
+
+.form__cancel {
+  background: transparent;
+  width: 100%;
+  max-width: 256px;
+  margin-inline: auto;
+  padding: .5rem;
 }
 
 .form__submit {
   background: var(--foreground);
   color: var(--background);
-  margin-left: auto;
   width: 100%;
   max-width: 256px;
   padding: .5rem;
