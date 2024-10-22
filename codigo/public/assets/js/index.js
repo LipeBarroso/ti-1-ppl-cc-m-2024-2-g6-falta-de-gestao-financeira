@@ -1,5 +1,6 @@
 import { auth, logout } from "./auth.js";
 import { createCategoryFormEvent } from "./categories.js";
+import { createIconsSelector } from "./icons-selector.js";
 import { createPopupEvents } from "./popup.js";
 
 if (!auth()) window.location.replace("./login.html");
@@ -15,3 +16,5 @@ logoutButton.addEventListener("click", (event) => {
 createCategoryFormEvent();
 
 createPopupEvents();
+
+createIconsSelector();
