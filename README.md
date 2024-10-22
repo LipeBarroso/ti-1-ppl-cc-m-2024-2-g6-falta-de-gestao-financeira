@@ -1,5 +1,4 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=15989753&assignment_repo_type=AssignmentRepo)
-# Nome do projeto
+# Falta de gestão financeira
 
 Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 
@@ -9,7 +8,11 @@ Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 * Filipe Nery Rabelo
 * Gabriel Corrêa Costa
 * Nikolas Petrick Castro Mendes
+<<<<<<< HEAD
 * Rondinelly Martins Silva
+=======
+* Rondinelly Martins Silva 
+>>>>>>> 95d3697 (Atualizações no readme e docs/readme. Adicionadas)
 * Victor Rabelo Souza
 
 ## Professores responsáveis
