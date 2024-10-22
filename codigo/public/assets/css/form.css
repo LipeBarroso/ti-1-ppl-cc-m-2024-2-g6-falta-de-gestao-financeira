@@ -69,10 +69,52 @@
   z-index: -1;
 }
 
+.form__field__icons {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 1rem;
+  max-width: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
+  padding: .25rem;
+}
+
+.form__field__icons__item {
+  aspect-ratio: 1;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 1px solid var(--foreground);
+  border-radius: .5rem;
+  background-color: var(--input);
+}
+
+.form__field__icons__item:has(.form__field__icons__item__input:checked) {
+  filter: invert(1);
+}
+
+.form__field__icons__item__input {
+  position: absolute;
+  appearance: none;
+  inset: 0;
+  background-color: transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+.form__field__icons__item__image {
+  width: calc(100% - 1rem);
+  height: calc(100% - 1rem);
+}
+
 .form__footer {
   display: flex;
   justify-content: end;
-  gap: .5rem;
+  align-items: center;
+  gap: 1rem;
 }
 
 .form__cancel {

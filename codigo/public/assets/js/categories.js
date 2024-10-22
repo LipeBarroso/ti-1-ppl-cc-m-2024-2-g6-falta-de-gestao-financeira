@@ -24,16 +24,25 @@ export function createCategoryFormEvent() {
       ? "income"
       : "expense";
 
-    const newCategory = await createCategory({ ownerId, label, type });
+    let icon = document
+      .querySelector(".form__field__icons__item__input:checked")
+      .getAttribute("data-icon-name");
+
+    if (icon === "none") icon = undefined;
+
+    const newCategory = await createCategory({ ownerId, label, type, icon });
 
     if (!newCategory) {
       alert("Erro interno do servidor, tente novamente");
       return;
     }
+
+    document.getElementById("create-category-popup").close();
+    form.reset();
   });
 }
 
-export async function createCategory({ label, type, ownerId }) {
+export async function createCategory({ label, type, ownerId, icon }) {
   if (!label || !type || !ownerId) {
     console.error("Erro ao criar categoria, falta dados.");
 
@@ -57,7 +66,7 @@ export async function createCategory({ label, type, ownerId }) {
   const data = await fetch("/categories", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ownerId, label, type }),
+    body: JSON.stringify({ ownerId, label, type, icon }),
   });
 
   if (!data) {
@@ -86,10 +95,10 @@ export async function getUserCategories(userId) {
   return userCategories;
 }
 
-export async function updateCategoryById({ categoryId, label }) {
+export async function updateCategoryById({ categoryId, label, icon }) {
   const res = await fetch(`/categories/${categoryId}`, {
     method: "PATCH",
-    body: JSON.stringify({ label }),
+    body: JSON.stringify({ label, icon }),
   });
 
   if (!res.ok) {
