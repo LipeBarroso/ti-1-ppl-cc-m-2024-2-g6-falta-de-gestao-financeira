@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Laboratório de aplicação Web com backend baseado no JSON Server",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-   "start": "node index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "Rommel Vieira Carneiro",
