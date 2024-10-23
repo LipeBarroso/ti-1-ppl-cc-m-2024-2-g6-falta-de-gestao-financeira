@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    
     $('.row button').click(function () {
         $('.row button').removeClass('selecionado');
         $(this).addClass('selecionado');
@@ -9,9 +10,9 @@ $(document).ready(function () {
         $('.meta').hide();
     });
 
-    $('#meta').click(function () {
-        $('.meta').show();
-        $('.evolução').hide();
+    $('#metas').click(function () {
+        window.location.href = 'index.html';
+
     });
 
     
