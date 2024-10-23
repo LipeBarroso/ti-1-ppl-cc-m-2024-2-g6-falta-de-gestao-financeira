@@ -1,0 +1,74 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "admin",
+        "email": "admin@admin.com",
+        "password": "123"
+      }
+    ],
+    "entries": [
+    {
+      "id": 1,
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Pão de Queijo",
+      "type": "income",
+      "date": "1696051200000",
+      "value": 100.00
+    },
+    {
+      "id": 2,
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Leite",
+      "type": "expense",
+      "date": "1696137600000",
+      "value": 10.00
+    }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "ownerId": 1,
+        "label": "Salário",
+        "type": "income"
+      },
+      {
+        "id": 2,
+        "ownerId": 1,
+        "label": "Aluguel",
+        "type": "expense"
+      },
+      {
+        "id": 3,
+        "ownerId": 1,
+        "label": "Supermercado",
+        "type": "expense"
+      },
+      {
+        "id": 4,
+        "ownerId": 1,
+        "label": "Freelance",
+        "type": "income"
+      },
+      {
+        "id": 5,
+        "ownerId": 1,
+        "label": "Energia Elétrica",
+        "type": "expense"
+      }
+    ],
+    "goals": [
+      {
+        "id": 1,
+        "ownerId": 1,
+        "categoryId": 1,
+        "createdAt": "1727825483351",
+        "updatedAt": "1727825483351",
+        "label": "Guardar dinheiro para férias",
+        "type": "income"
+      }
+    ]
+  }
+  

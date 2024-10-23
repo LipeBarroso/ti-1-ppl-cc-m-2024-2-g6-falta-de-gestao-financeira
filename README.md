@@ -9,11 +9,7 @@ O objetivo do projeto é desenvolver um software educativo voltado para melhorar
 * Filipe Nery Rabelo
 * Gabriel Corrêa Costa
 * Nikolas Petrick Castro Mendes
-<<<<<<< HEAD
 * Rondinelly Martins Silva
-=======
-* Rondinelly Martins Silva 
->>>>>>> 95d3697 (Atualizações no readme e docs/readme. Adicionadas)
 * Victor Rabelo Souza
 
 ## Professores responsáveis
