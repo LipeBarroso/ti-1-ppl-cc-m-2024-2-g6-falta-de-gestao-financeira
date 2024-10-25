@@ -1,5 +1,6 @@
 .card>.form {
   background: var(--card);
+  border: 1px solid currentColor;
   border-radius: 1rem;
   max-width: 680px;
   margin-inline: auto;

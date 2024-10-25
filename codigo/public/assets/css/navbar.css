@@ -51,6 +51,8 @@
 }
 
 #logout-button {
+  background-color: var(--foreground);
+  color: var(--background);
   padding: .125rem 1rem;
 }
 
