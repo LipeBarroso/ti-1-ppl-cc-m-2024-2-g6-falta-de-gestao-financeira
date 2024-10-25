@@ -15,7 +15,16 @@
       "label": "Pão de Queijo",
       "type": "income",
       "date": "1727825483351",
-      "value": 100.01
+      "value": 1000.01
+    },
+    {
+      "id": 2,
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Mercado",
+      "type": "expense",
+      "date": "1727825483351",
+      "value": 500.01
     }
   ],
   "categories": [
