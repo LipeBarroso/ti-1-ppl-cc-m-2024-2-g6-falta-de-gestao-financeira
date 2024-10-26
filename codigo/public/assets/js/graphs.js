@@ -89,6 +89,41 @@ $(document).ready(function () {
         return meses;
     }
 
+    function processarGastosMensais(entries, userId) {
+        const gastosPorCategoria = {};
+        const mesAtual = new Date().getMonth();
+        
+        const userEntries = entries.filter(entry => 
+            entry.ownerId === userId && 
+            entry.type === 'expense' && 
+            new Date(parseInt(entry.date)).getMonth() === mesAtual
+        );
+
+        fetch(`${JSON_SERVER_URL}/categories`)
+            .then(response => response.json())
+            .then(categories => {
+                userEntries.forEach(entry => {
+                    try {
+                        const categoria = categories.find(cat => cat.id === entry.categoryId);
+                        if (categoria) {
+                            const nomeCategoria = categoria.label;
+                            if (!gastosPorCategoria[nomeCategoria]) {
+                                gastosPorCategoria[nomeCategoria] = 0;
+                            }
+                            gastosPorCategoria[nomeCategoria] += parseFloat(entry.value) || 0;
+                        }
+                    } catch (erro) {
+                        console.error('Erro ao processar gasto:', erro, entry);
+                    }
+                });
+
+                criarGraficoPizza(gastosPorCategoria);
+            })
+            .catch(erro => {
+                console.error('Erro ao carregar categorias:', erro);
+            });
+    }
+
     function criarGrafico(dadosMensais) {
         const nomesMeses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
         
@@ -153,11 +188,55 @@ $(document).ready(function () {
         });
     }
 
+    function criarGraficoPizza(gastosPorCategoria) {
+        const chartElement = document.getElementById('graficoGastos');
+        const existingChart = Chart.getChart(chartElement);
+        if (existingChart) {
+            existingChart.destroy();
+        }
+
+        const cores = Object.keys(gastosPorCategoria).map(() => 
+            `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
+        );
+
+        new Chart(chartElement, {
+            type: 'pie',
+            data: {
+                labels: Object.keys(gastosPorCategoria),
+                datasets: [{
+                    data: Object.values(gastosPorCategoria),
+                    backgroundColor: cores,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: false,
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.label || '';
+                                const value = context.parsed || 0;
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = ((value / total) * 100).toFixed(1);
+                                return `${label}: R$ ${value.toFixed(2)} (${percentage}%)`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
     const usuarioLogadoId = 1;
 
     getdata(function (dados) {
         savingMonth(dados.entries, usuarioLogadoId);
         const dadosMensais = processarDadosMensais(dados.entries, usuarioLogadoId);
         criarGrafico(dadosMensais);
+        processarGastosMensais(dados.entries, usuarioLogadoId);
     });
 });

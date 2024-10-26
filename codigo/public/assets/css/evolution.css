@@ -43,3 +43,9 @@ main .card .desativado
 {
     display: none;
 }
+
+#graficoGastos{
+    width: 500px;
+    height: 500px;
+    
+}
