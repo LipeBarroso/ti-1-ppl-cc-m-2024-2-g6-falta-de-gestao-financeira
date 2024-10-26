@@ -1,7 +1,6 @@
 $(document).ready(function () {
     const JSON_SERVER_URL = 'http://localhost:3000';
 
-
     function getdata(callback) {
         fetch(`${JSON_SERVER_URL}/entries`)
             .then(response => {
@@ -12,7 +11,6 @@ $(document).ready(function () {
             })
             .then(entries => {
                 console.log('Dados carregados:', entries);
-                // Adaptando o formato para manter compatibilidade com o código existente
                 const dados = { entries: entries };
                 if (callback) callback(dados);
             })
@@ -31,8 +29,6 @@ $(document).ready(function () {
         let receitas = 0;
         let despesas = 0;
         const mesAtual = new Date().getMonth();
-
-        // Filtra entradas pelo userId antes de processar
         const userEntries = entries.filter(entry => entry.ownerId === userId);
 
         userEntries.forEach(entry => {
@@ -64,21 +60,19 @@ $(document).ready(function () {
         return valorEconomizado;
     }
 
-    function criarGrafico(dados, userId) {
-        // Filtra as entradas do usuário
-        const userEntries = dados.entries.filter(entry => entry.ownerId === userId);
+    function processarDadosMensais(entries, userId) {
+        const meses = Array(12).fill(0).map(() => ({
+            income: 0,
+            expense: 0
+        }));
 
-        // Processa os dados para o gráfico
-        const processarDadosMensais = () => {
-            const meses = Array(12).fill(0).map((_, i) => {
-                return {
-                    income: 0,
-                    expense: 0
-                };
-            });
+        const userEntries = entries.filter(entry => entry.ownerId === userId);
 
-            userEntries.forEach(entry => {
+        userEntries.forEach(entry => {
+            try {
                 const data = new Date(parseInt(entry.date));
+                if (isNaN(data)) throw new Error('Data inválida');
+
                 const mes = data.getMonth();
                 const valor = parseFloat(entry.value) || 0;
 
@@ -87,36 +81,83 @@ $(document).ready(function () {
                 } else if (entry.type === 'expense') {
                     meses[mes].expense += valor;
                 }
-            });
+            } catch (erro) {
+                console.error('Erro ao processar entrada para o gráfico:', erro, entry);
+            }
+        });
 
-            return meses;
-        };
+        return meses;
+    }
 
-        const dadosMensais = processarDadosMensais();
-        console.log(`Dados mensais do usuário ${userId}:`, dadosMensais);
+    function criarGrafico(dadosMensais) {
+        const nomesMeses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+        
+        const chartElement = document.getElementById('mensal');
+        const existingChart = Chart.getChart(chartElement);
+        if (existingChart) {
+            existingChart.destroy();
+        }
+
+        new Chart(chartElement, {
+            type: 'line',
+            data: {
+                labels: nomesMeses,
+                datasets: [
+                    {
+                        label: 'Ganhos',
+                        data: dadosMensais.map(mes => mes.income),
+                        borderColor: 'rgb(75, 192, 192)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        tension: 0.1
+                    },
+                    {
+                        label: 'Despesas',
+                        data: dadosMensais.map(mes => mes.expense),
+                        borderColor: 'rgb(255, 99, 132)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        tension: 0.1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Receitas e Despesas Mensais'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': R$ ';
+                                }
+                                label += context.parsed.y.toFixed(2);
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return 'R$ ' + value.toFixed(2);
+                            }
+                        }
+                    }
+                }
+            }
+        });
     }
 
     const usuarioLogadoId = 1;
 
     getdata(function (dados) {
         savingMonth(dados.entries, usuarioLogadoId);
-        criarGrafico(dados, usuarioLogadoId);
+        const dadosMensais = processarDadosMensais(dados.entries, usuarioLogadoId);
+        criarGrafico(dadosMensais);
     });
-
-
-    new Chart(
-        document.getElementById('mensal'),
-        {
-          type: 'line',
-          data: {
-            labels: data.map(row => row.year),
-            datasets: [
-              {
-                label: 'Acquisitions by year',
-                data: data.map(row => row.count)
-              }
-            ]
-          }
-        }
-      );
 });

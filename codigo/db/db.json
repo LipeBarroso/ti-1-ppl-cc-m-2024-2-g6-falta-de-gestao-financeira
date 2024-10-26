@@ -12,26 +12,404 @@
       "id": 1,
       "ownerId": 1,
       "categoryId": 1,
-      "label": "Pão de Queijo",
+      "label": "Salário",
       "type": "income",
-      "date": "1727825483351",
-      "value": 1000.01
+      "date": "1698796800000",
+      "value": 4500.00
     },
     {
       "id": 2,
       "ownerId": 1,
-      "categoryId": 1,
-      "label": "Mercado",
+      "categoryId": 2,
+      "label": "Aluguel",
       "type": "expense",
-      "date": "1727825483351",
-      "value": 500.01
+      "date": "1698796800000",
+      "value": 2000.00
+    },
+    {
+      "id": 3,
+      "ownerId": 1,
+      "categoryId": 3,
+      "label": "IPTU",
+      "type": "expense",
+      "date": "1698796800000",
+      "value": 3000.00
+    },
+    {
+      "id": 4,
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "date": "1701388800000",
+      "value": 4500.00
+    },
+    {
+      "id": 5,
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "13º Salário",
+      "type": "income",
+      "date": "1701388800000",
+      "value": 4500.00
+    },
+    {
+      "id": 6,
+      "ownerId": 1,
+      "categoryId": 4,
+      "label": "Compras de Natal",
+      "type": "expense",
+      "date": "1701388800000",
+      "value": 3500.00
+    },
+    {
+      "id": 7,
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "date": "1704067200000",
+      "value": 4500.00
+    },
+    {
+      "id": 8,
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "Aluguel",
+      "type": "expense",
+      "date": "1704067200000",
+      "value": 2000.00
+    },
+    {
+      "id": 9,
+      "ownerId": 1,
+      "categoryId": 5,
+      "label": "Material Escolar",
+      "type": "expense",
+      "date": "1704067200000",
+      "value": 3000.00
+    },
+    {
+      "id": 10,
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "date": "1706745600000",
+      "value": 4500.00
+    },
+    {
+      "id": 11,
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "Aluguel",
+      "type": "expense",
+      "date": "1706745600000",
+      "value": 2000.00
+    },
+    {
+      "id": 12,
+      "ownerId": 1,
+      "categoryId": 3,
+      "label": "Conserto Carro",
+      "type": "expense",
+      "date": "1706745600000",
+      "value": 4000.00
+    },
+    {
+      "id": 13,
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "date": "1709251200000",
+      "value": 4500.00
+    },
+    {
+      "id": 14,
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "Aluguel",
+      "type": "expense",
+      "date": "1709251200000",
+      "value": 2000.00
+    },
+    {
+      "id": 15,
+      "ownerId": 1,
+      "categoryId": 6,
+      "label": "Bônus",
+      "type": "income",
+      "date": "1709251200000",
+      "value": 1500.00
+    },
+    {
+      "id": 16,
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "date": "1711929600000",
+      "value": 4500.00
+    },
+    {
+      "id": 17,
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "Aluguel",
+      "type": "expense",
+      "date": "1711929600000",
+      "value": 2000.00
+    },
+    {
+      "id": 18,
+      "ownerId": 1,
+      "categoryId": 4,
+      "label": "Viagem",
+      "type": "expense",
+      "date": "1711929600000",
+      "value": 5000.00
+    },
+    {
+      "id": 19,
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "date": "1714521600000",
+      "value": 4500.00
+    },
+    {
+      "id": 20,
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "Aluguel",
+      "type": "expense",
+      "date": "1714521600000",
+      "value": 2000.00
+    },
+    {
+      "id": 21,
+      "ownerId": 1,
+      "categoryId": 7,
+      "label": "Freelance",
+      "type": "income",
+      "date": "1714521600000",
+      "value": 2000.00
+    },
+    {
+      "id": 22,
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "date": "1717200000000",
+      "value": 4500.00
+    },
+    {
+      "id": 23,
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "Aluguel",
+      "type": "expense",
+      "date": "1717200000000",
+      "value": 2000.00
+    },
+    {
+      "id": 24,
+      "ownerId": 1,
+      "categoryId": 3,
+      "label": "Reforma Casa",
+      "type": "expense",
+      "date": "1717200000000",
+      "value": 6000.00
+    },
+    {
+      "id": 25,
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "date": "1719792000000",
+      "value": 4500.00
+    },
+    {
+      "id": 26,
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "Aluguel",
+      "type": "expense",
+      "date": "1719792000000",
+      "value": 2000.00
+    },
+    {
+      "id": 27,
+      "ownerId": 1,
+      "categoryId": 7,
+      "label": "Projeto Extra",
+      "type": "income",
+      "date": "1719792000000",
+      "value": 3000.00
+    },
+    {
+      "id": 28,
+      "ownerId": 1,
+      "categoryId": 4,
+      "label": "Férias",
+      "type": "expense",
+      "date": "1719792000000",
+      "value": 4000.00
+    },
+    {
+      "id": 29,
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "date": "1722470400000",
+      "value": 4500.00
+    },
+    {
+      "id": 30,
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "Aluguel",
+      "type": "expense",
+      "date": "1722470400000",
+      "value": 2000.00
+    },
+    {
+      "id": 31,
+      "ownerId": 1,
+      "categoryId": 3,
+      "label": "Manutenção Carro",
+      "type": "expense",
+      "date": "1722470400000",
+      "value": 3500.00
+    },
+    {
+      "id": 32,
+      "ownerId": 1,
+      "categoryId": 6,
+      "label": "Comissão Vendas",
+      "type": "income",
+      "date": "1722470400000",
+      "value": 2000.00
+    },
+    {
+      "id": 33,
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "date": "1725148800000",
+      "value": 4500.00
+    },
+    {
+      "id": 34,
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "Aluguel",
+      "type": "expense",
+      "date": "1725148800000",
+      "value": 2000.00
+    },
+    {
+      "id": 35,
+      "ownerId": 1,
+      "categoryId": 5,
+      "label": "Curso Especialização",
+      "type": "expense",
+      "date": "1725148800000",
+      "value": 5000.00
+    },
+    {
+      "id": 36,
+      "ownerId": 1,
+      "categoryId": 7,
+      "label": "Consultoria",
+      "type": "income",
+      "date": "1725148800000",
+      "value": 1800.00
+    },
+    {
+      "id": 37,
+      "ownerId": 1,
+      "categoryId": 1,
+      "label": "Salário",
+      "type": "income",
+      "date": "1727827200000",
+      "value": 4500.00
+    },
+    {
+      "id": 38,
+      "ownerId": 1,
+      "categoryId": 2,
+      "label": "Aluguel",
+      "type": "expense",
+      "date": "1727827200000",
+      "value": 2000.00
+    },
+    {
+      "id": 39,
+      "ownerId": 1,
+      "categoryId": 4,
+      "label": "Eletrônicos",
+      "type": "expense",
+      "date": "1727827200000",
+      "value": 3800.00
+    },
+    {
+      "id": 40,
+      "ownerId": 1,
+      "categoryId": 7,
+      "label": "Freelance",
+      "type": "income",
+      "date": "1727827200000",
+      "value": 2500.00
     }
   ],
   "categories": [
     {
       "id": 1,
       "ownerId": 1,
-      "label": "Mercado",
+      "label": "Salário",
+      "type": "income"
+    },
+    {
+      "id": 2,
+      "ownerId": 1,
+      "label": "Moradia",
+      "type": "expense"
+    },
+    {
+      "id": 3,
+      "ownerId": 1,
+      "label": "Manutenção",
+      "type": "expense"
+    },
+    {
+      "id": 4,
+      "ownerId": 1,
+      "label": "Lazer",
+      "type": "expense"
+    },
+    {
+      "id": 5,
+      "ownerId": 1,
+      "label": "Educação",
+      "type": "expense"
+    },
+    {
+      "id": 6,
+      "ownerId": 1,
+      "label": "Bônus",
+      "type": "income"
+    },
+    {
+      "id": 7,
+      "ownerId": 1,
+      "label": "Freelance",
       "type": "income"
     }
   ],
@@ -40,10 +418,11 @@
       "id": 1,
       "ownerId": 1,
       "categoryId": 1,
-      "createdAt": "1727825483351",
-      "updatedAt": "1727825483351",
-      "label": "Padaria",
-      "type": "income"
+      "createdAt": "1704067200000",
+      "updatedAt": "1727827200000",
+      "label": "Meta de Economia",
+      "type": "income",
+      "target": 2000.00
     }
   ]
 }
