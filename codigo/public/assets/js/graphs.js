@@ -92,10 +92,10 @@ $(document).ready(function () {
     function processarGastosMensais(entries, userId) {
         const gastosPorCategoria = {};
         const mesAtual = new Date().getMonth();
-        
-        const userEntries = entries.filter(entry => 
-            entry.ownerId === userId && 
-            entry.type === 'expense' && 
+
+        const userEntries = entries.filter(entry =>
+            entry.ownerId === userId &&
+            entry.type === 'expense' &&
             new Date(parseInt(entry.date)).getMonth() === mesAtual
         );
 
@@ -126,7 +126,7 @@ $(document).ready(function () {
 
     function criarGrafico(dadosMensais) {
         const nomesMeses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
-        
+
         const chartElement = document.getElementById('mensal');
         const existingChart = Chart.getChart(chartElement);
         if (existingChart) {
@@ -163,7 +163,7 @@ $(document).ready(function () {
                     },
                     tooltip: {
                         callbacks: {
-                            label: function(context) {
+                            label: function (context) {
                                 let label = context.dataset.label || '';
                                 if (label) {
                                     label += ': R$ ';
@@ -178,7 +178,7 @@ $(document).ready(function () {
                     y: {
                         beginAtZero: true,
                         ticks: {
-                            callback: function(value) {
+                            callback: function (value) {
                                 return 'R$ ' + value.toFixed(2);
                             }
                         }
@@ -195,7 +195,7 @@ $(document).ready(function () {
             existingChart.destroy();
         }
 
-        const cores = Object.keys(gastosPorCategoria).map(() => 
+        const cores = Object.keys(gastosPorCategoria).map(() =>
             `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
         );
 
@@ -217,7 +217,7 @@ $(document).ready(function () {
                     },
                     tooltip: {
                         callbacks: {
-                            label: function(context) {
+                            label: function (context) {
                                 const label = context.label || '';
                                 const value = context.parsed || 0;
                                 const total = context.dataset.data.reduce((a, b) => a + b, 0);
@@ -238,5 +238,9 @@ $(document).ready(function () {
         const dadosMensais = processarDadosMensais(dados.entries, usuarioLogadoId);
         criarGrafico(dadosMensais);
         processarGastosMensais(dados.entries, usuarioLogadoId);
+    });
+
+    $('#metas').click(function () {
+        window.location.href = 'index.html';
     });
 });
