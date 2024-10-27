@@ -240,7 +240,4 @@ $(document).ready(function () {
         processarGastosMensais(dados.entries, usuarioLogadoId);
     });
 
-    $('#metas').click(function () {
-        window.location.href = 'index.html';
-    });
 });

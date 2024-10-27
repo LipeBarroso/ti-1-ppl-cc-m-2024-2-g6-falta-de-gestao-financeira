@@ -65,17 +65,6 @@
       </header>
 
     <main>
-        <div class="container text-center botoes py-2">
-            <div class="row g-0 justify-content-center mx-1">
-              <div class="col-12 col-sm-6">
-                <button type="button" id="evolução" class="btn w-100 mx-0 selecionado">Evolução</button>
-              </div>
-              <div class="col-12 col-sm-6">
-                <button type="button" id="metas" class="btn w-100 mx-0">Metas</button>
-              </div>
-            </div>
-          </div>
-
           <div class="card evolução">
           <div class="card-body p-4 mb-5 ">
             <div class="card-header py-4" id="cardName">
@@ -86,7 +75,7 @@
                 <span id="valorEconomia">+R$ 0,00</span>
             </div>
 
-            <div id="graficoMensal mt-5">
+            <div id="graficoMensal" class="chart-container">
                 <canvas id="mensal" width="500" height="100"></canvas>
             </div>
         </div>
