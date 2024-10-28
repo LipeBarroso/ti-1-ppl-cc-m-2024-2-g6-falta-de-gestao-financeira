@@ -40,6 +40,11 @@ form.addEventListener("submit", async (event) => {
 
   const user = userData[0];
 
+  if (user.password !== formData.password) {
+    alert("Senha incorreta");
+    return;
+  }
+
   login({ id: user.id, name: user.name, email: user.email });
 });
 
