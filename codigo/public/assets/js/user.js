@@ -13,10 +13,18 @@ export async function createUser({ name, email, password }) {
     return;
   }
 
+  const time = new Date().getTime();
+
   const res = await fetch("/users", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, password }),
+    body: JSON.stringify({
+      name,
+      email,
+      password,
+      createdAt: time,
+      updatedAt: time,
+    }),
   });
 
   if (!res.ok) {
@@ -57,9 +65,11 @@ export async function getUserById(userId) {
 }
 
 export async function updateUserById(userId, { name }) {
+  const updatedAt = new Date().getTime();
+
   const res = await fetch(`/users/${userId}`, {
     method: "PATCH",
-    body: JSON.stringify({ name }),
+    body: JSON.stringify({ name, updatedAt }),
   });
 
   if (!res.ok) {

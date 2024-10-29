@@ -1,4 +1,5 @@
 import { auth, logout } from './auth.js';
+
 $(document).ready(function () {
     const JSON_SERVER_URL = 'http://localhost:3000';
     

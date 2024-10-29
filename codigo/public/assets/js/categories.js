@@ -63,10 +63,19 @@ export async function createCategory({ label, type, ownerId, icon }) {
     return null;
   }
 
+  const time = new Date().getTime();
+
   const data = await fetch("/categories", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ownerId, label, type, icon }),
+    body: JSON.stringify({
+      ownerId,
+      label,
+      type,
+      icon,
+      createdAt: time,
+      updatedAt: time,
+    }),
   });
 
   if (!data) {
@@ -96,9 +105,11 @@ export async function getUserCategories(userId) {
 }
 
 export async function updateCategoryById({ categoryId, label, icon }) {
+  const updatedAt = new Date().getTime();
+
   const res = await fetch(`/categories/${categoryId}`, {
     method: "PATCH",
-    body: JSON.stringify({ label, icon }),
+    body: JSON.stringify({ label, icon, updatedAt }),
   });
 
   if (!res.ok) {

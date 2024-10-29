@@ -19,18 +19,15 @@ codigo/  (essa pasta aqui)
 │   │   │   ├── page.js (individual por página)
 │   │   │   └── (outros arquivos .js)
 │   │   │
-│   │   ├── images/
-│   │   │   ├── logo.png
-│   │   │   └── (outras imagens)
-│   │   │
-│   │   └── fonts/
-│   │       ├── font1.ttf
-│   │       └── (outras fontes)
+│   │   └── images/
+│   │       ├── logo.png
+│   │       └── (outras imagens)
 │   │
 │   ├── index.html (página inicial front end)
 │   └── (outras páginas)
 │
 │── index.js (servidor)
+│── package-lock.json (configuração das dependências)
 │── package.json (configuração das dependências)
 └── README.md (este arquivo aqui)
 ```

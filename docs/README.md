@@ -10,14 +10,6 @@
   * [Rondinelly Martins Silva ](https://github.com/Rondi17)
   * [Victor Rabelo Souza](https://github.com/VictorRS7)
 
-
-<<<<<<< HEAD
-  * [Filipe Nery Rabelo](https://github.com/Filnr)
-  * [Victor Rabelo Souza](https://github.com/VictorRS7)
-  * [Cicrano](https://github.com/cicrano) ⚠️ EXEMPLO ⚠️
-=======
->>>>>>> 95d3697 (Atualizações no readme e docs/readme. Adicionadas)
-
 A documentação do projeto é estruturada da seguinte forma:
 
 - [Introdução](#introdução)
