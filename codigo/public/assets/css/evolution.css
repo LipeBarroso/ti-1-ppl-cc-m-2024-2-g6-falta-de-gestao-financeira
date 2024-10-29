@@ -107,7 +107,7 @@ main {
   }
 
   #graficoMensal {
-    display: none !important; /* Esconde o gráfico mensal */
+    display: none !important; 
   }
 
   canvas {
@@ -131,7 +131,7 @@ main {
   }
 
   #graficoMensal {
-    display: none !important; /* Mantém o gráfico mensal escondido */
+    display: none !important; 
   }
 
   .card canvas {

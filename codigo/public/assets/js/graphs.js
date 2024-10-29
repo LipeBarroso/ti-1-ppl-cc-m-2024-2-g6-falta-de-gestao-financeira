@@ -1,67 +1,78 @@
+import { auth, logout } from './auth.js';
 $(document).ready(function () {
     const JSON_SERVER_URL = 'http://localhost:3000';
+    
+    const loggedInUser = auth();
+    if (!loggedInUser) {
+        window.location.replace('/login.html');
+        return;
+    }
+
+    $('#logoutBtn').click(function() {
+        logout();
+    });
 
     function getdata(callback) {
         fetch(`${JSON_SERVER_URL}/entries`)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Erro na rede: ' + response.status);
+                    throw new Error('Network error: ' + response.status);
                 }
                 return response.json();
             })
             .then(entries => {
-                console.log('Dados carregados:', entries);
-                const dados = { entries: entries };
-                if (callback) callback(dados);
+                console.log('Data loaded:', entries);
+                const data = { entries: entries };
+                if (callback) callback(data);
             })
-            .catch(erro => {
-                console.error('Erro ao carregar os dados: ', erro);
-                $('#valorEconomia').text('Erro ao carregar dados');
+            .catch(error => {
+                console.error('Error loading data: ', error);
+                $('#valorEconomia').text('Error loading data');
             });
     }
 
     function savingMonth(entries, userId) {
         if (!Array.isArray(entries)) {
-            console.error('Dados inválidos: entries não é um array');
+            console.error('Invalid data: entries is not an array');
             return 0;
         }
 
-        let receitas = 0;
-        let despesas = 0;
-        const mesAtual = new Date().getMonth();
+        let income = 0;
+        let expenses = 0;
+        const currentMonth = new Date().getMonth();
         const userEntries = entries.filter(entry => entry.ownerId === userId);
 
         userEntries.forEach(entry => {
             try {
-                const dataTransacao = new Date(parseInt(entry.date));
-                if (isNaN(dataTransacao)) throw new Error('Data inválida');
+                const transactionDate = new Date(parseInt(entry.date));
+                if (isNaN(transactionDate)) throw new Error('Invalid date');
 
-                const mesTransacao = dataTransacao.getMonth();
+                const transactionMonth = transactionDate.getMonth();
 
-                if (mesTransacao === mesAtual) {
-                    const valor = parseFloat(entry.value) || 0;
+                if (transactionMonth === currentMonth) {
+                    const value = parseFloat(entry.value) || 0;
                     if (entry.type === 'income') {
-                        receitas += valor;
+                        income += value;
                     } else if (entry.type === 'expense') {
-                        despesas += valor;
+                        expenses += value;
                     }
                 }
-            } catch (erro) {
-                console.error('Erro ao processar entrada:', erro, entry);
+            } catch (error) {
+                console.error('Error processing entry:', error, entry);
             }
         });
 
-        const valorEconomizado = receitas - despesas;
-        console.log(`Usuário ${userId} - Receitas:`, receitas, 'Despesas:', despesas, 'Valor Economizado:', valorEconomizado);
+        const savedAmount = income - expenses;
+        console.log(`User ${userId} - Income:`, income, 'Expenses:', expenses, 'Saved Amount:', savedAmount);
 
-        const sinal = valorEconomizado > 0 ? '+' : '';
-        $('#valorEconomia').text(`${sinal}R$ ${valorEconomizado.toFixed(2)}`);
+        const sign = savedAmount > 0 ? '+' : '';
+        $('#valorEconomia').text(`${sign}R$ ${savedAmount.toFixed(2)}`);
 
-        return valorEconomizado;
+        return savedAmount;
     }
 
-    function processarDadosMensais(entries, userId) {
-        const meses = Array(12).fill(0).map(() => ({
+    function processMonthlyData(entries, userId) {
+        const months = Array(12).fill(0).map(() => ({
             income: 0,
             expense: 0
         }));
@@ -70,33 +81,33 @@ $(document).ready(function () {
 
         userEntries.forEach(entry => {
             try {
-                const data = new Date(parseInt(entry.date));
-                if (isNaN(data)) throw new Error('Data inválida');
+                const date = new Date(parseInt(entry.date));
+                if (isNaN(date)) throw new Error('Invalid date');
 
-                const mes = data.getMonth();
-                const valor = parseFloat(entry.value) || 0;
+                const month = date.getMonth();
+                const value = parseFloat(entry.value) || 0;
 
                 if (entry.type === 'income') {
-                    meses[mes].income += valor;
+                    months[month].income += value;
                 } else if (entry.type === 'expense') {
-                    meses[mes].expense += valor;
+                    months[month].expense += value;
                 }
-            } catch (erro) {
-                console.error('Erro ao processar entrada para o gráfico:', erro, entry);
+            } catch (error) {
+                console.error('Error processing entry for chart:', error, entry);
             }
         });
 
-        return meses;
+        return months;
     }
 
-    function processarGastosMensais(entries, userId) {
-        const gastosPorCategoria = {};
-        const mesAtual = new Date().getMonth();
+    function processMonthlyExpenses(entries, userId) {
+        const expensesByCategory = {};
+        const currentMonth = new Date().getMonth();
 
         const userEntries = entries.filter(entry =>
             entry.ownerId === userId &&
             entry.type === 'expense' &&
-            new Date(parseInt(entry.date)).getMonth() === mesAtual
+            new Date(parseInt(entry.date)).getMonth() === currentMonth
         );
 
         fetch(`${JSON_SERVER_URL}/categories`)
@@ -104,30 +115,38 @@ $(document).ready(function () {
             .then(categories => {
                 userEntries.forEach(entry => {
                     try {
-                        const categoria = categories.find(cat => cat.id === entry.categoryId);
-                        if (categoria) {
-                            const nomeCategoria = categoria.label;
-                            if (!gastosPorCategoria[nomeCategoria]) {
-                                gastosPorCategoria[nomeCategoria] = 0;
+                        const category = categories.find(cat => 
+                            cat.id === entry.categoryId && 
+                            cat.ownerId === userId
+                        );
+                        if (category) {
+                            const categoryName = category.label;
+                            if (!expensesByCategory[categoryName]) {
+                                expensesByCategory[categoryName] = 0;
                             }
-                            gastosPorCategoria[nomeCategoria] += parseFloat(entry.value) || 0;
+                            expensesByCategory[categoryName] += parseFloat(entry.value) || 0;
                         }
-                    } catch (erro) {
-                        console.error('Erro ao processar gasto:', erro, entry);
+                    } catch (error) {
+                        console.error('Error processing expense:', error, entry);
                     }
                 });
 
-                criarGraficoPizza(gastosPorCategoria);
+                createPieChart(expensesByCategory);
             })
-            .catch(erro => {
-                console.error('Erro ao carregar categorias:', erro);
+            .catch(error => {
+                console.error('Error loading categories:', error);
             });
     }
 
-    function criarGrafico(dadosMensais) {
-        const nomesMeses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+    function createLineChart(monthlyData) {
+        const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
         const chartElement = document.getElementById('mensal');
+        if (!chartElement) {
+            console.error('Chart element not found');
+            return;
+        }
+
         const existingChart = Chart.getChart(chartElement);
         if (existingChart) {
             existingChart.destroy();
@@ -136,18 +155,18 @@ $(document).ready(function () {
         new Chart(chartElement, {
             type: 'line',
             data: {
-                labels: nomesMeses,
+                labels: monthNames,
                 datasets: [
                     {
                         label: 'Ganhos',
-                        data: dadosMensais.map(mes => mes.income),
+                        data: monthlyData.map(month => month.income),
                         borderColor: 'rgb(75, 192, 192)',
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         tension: 0.1
                     },
                     {
-                        label: 'Despesas',
-                        data: dadosMensais.map(mes => mes.expense),
+                        label: 'Gastos',
+                        data: monthlyData.map(month => month.expense),
                         borderColor: 'rgb(255, 99, 132)',
                         backgroundColor: 'rgba(255, 99, 132, 0.2)',
                         tension: 0.1
@@ -159,7 +178,7 @@ $(document).ready(function () {
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Receitas e Despesas Mensais'
+                        text: 'Ganhos e despesas ao longo do ano'
                     },
                     tooltip: {
                         callbacks: {
@@ -188,24 +207,30 @@ $(document).ready(function () {
         });
     }
 
-    function criarGraficoPizza(gastosPorCategoria) {
+    function createPieChart(expensesByCategory) {
         const chartElement = document.getElementById('graficoGastos');
+        if (!chartElement) {
+            console.error('Pie chart element not found');
+            return;
+        }
+
         const existingChart = Chart.getChart(chartElement);
         if (existingChart) {
             existingChart.destroy();
         }
 
-        const cores = Object.keys(gastosPorCategoria).map(() =>
-            `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
-        );
+        const colors = Object.keys(expensesByCategory).map((_, index) => {
+            const hue = (index * 137.508) % 360; 
+            return `hsl(${hue}, 70%, 50%)`;
+        });
 
         new Chart(chartElement, {
             type: 'pie',
             data: {
-                labels: Object.keys(gastosPorCategoria),
+                labels: Object.keys(expensesByCategory),
                 datasets: [{
-                    data: Object.values(gastosPorCategoria),
-                    backgroundColor: cores,
+                    data: Object.values(expensesByCategory),
+                    backgroundColor: colors,
                     borderWidth: 1
                 }]
             },
@@ -231,13 +256,16 @@ $(document).ready(function () {
         });
     }
 
-    const usuarioLogadoId = 1;
 
-    getdata(function (dados) {
-        savingMonth(dados.entries, usuarioLogadoId);
-        const dadosMensais = processarDadosMensais(dados.entries, usuarioLogadoId);
-        criarGrafico(dadosMensais);
-        processarGastosMensais(dados.entries, usuarioLogadoId);
+    getdata(function (data) {
+        savingMonth(data.entries, loggedInUser.id);
+        const monthlyData = processMonthlyData(data.entries, loggedInUser.id);
+        createLineChart(monthlyData);
+        processMonthlyExpenses(data.entries, loggedInUser.id);
     });
 
+    // Navigation
+    $('#metas').click(function () {
+        window.location.href = 'index.html';
+    });
 });
