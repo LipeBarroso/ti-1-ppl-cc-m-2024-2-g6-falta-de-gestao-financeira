@@ -1,126 +1,272 @@
+import { auth, logout } from './auth.js';
+
 $(document).ready(function () {
-    $('.row button').click(function () {
-        $('.row button').removeClass('selecionado');
-        $(this).addClass('selecionado');
+    const JSON_SERVER_URL = 'http://localhost:3000';
+    
+    const loggedInUser = auth();
+    if (!loggedInUser) {
+        window.location.replace('/login.html');
+        return;
+    }
+
+    $('#logoutBtn').click(function() {
+        logout();
     });
 
-    $('#evolução').click(function () {
-        $('.evolução').show();
-        $('.meta').hide();
-    });
+    function getdata(callback) {
+        fetch(`${JSON_SERVER_URL}/entries`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network error: ' + response.status);
+                }
+                return response.json();
+            })
+            .then(entries => {
+                console.log('Data loaded:', entries);
+                const data = { entries: entries };
+                if (callback) callback(data);
+            })
+            .catch(error => {
+                console.error('Error loading data: ', error);
+                $('#valorEconomia').text('Error loading data');
+            });
+    }
 
-    $('#meta').click(function () {
-        $('.meta').show();
-        $('.evolução').hide();
-    });
+    function savingMonth(entries, userId) {
+        if (!Array.isArray(entries)) {
+            console.error('Invalid data: entries is not an array');
+            return 0;
+        }
 
-    
-    
-    
-    
-    
-    
-    
-    /*
-    // Dados iniciais em JSON para o primeiro gráfico
-    let dados1 = {
-        labels: ['Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set'],
-        datasets: [{
-            label: 'Economia Mensal',
-            data: [1200, 1500, 1800, 900, 1600, 1662],
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1
-        }]
-    };
+        let income = 0;
+        let expenses = 0;
+        const currentMonth = new Date().getMonth();
+        const userEntries = entries.filter(entry => entry.ownerId === userId);
 
-    // Configuração do gráfico 1 (gráfico de linha)
-    let config1 = {
-        type: 'line', // Pode mudar para 'bar', 'pie', etc.
-        data: dados1,
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
+        userEntries.forEach(entry => {
+            try {
+                const transactionDate = new Date(parseInt(entry.date));
+                if (isNaN(transactionDate)) throw new Error('Invalid date');
+
+                const transactionMonth = transactionDate.getMonth();
+
+                if (transactionMonth === currentMonth) {
+                    const value = parseFloat(entry.value) || 0;
+                    if (entry.type === 'income') {
+                        income += value;
+                    } else if (entry.type === 'expense') {
+                        expenses += value;
+                    }
+                }
+            } catch (error) {
+                console.error('Error processing entry:', error, entry);
+            }
+        });
+
+        const savedAmount = income - expenses;
+        console.log(`User ${userId} - Income:`, income, 'Expenses:', expenses, 'Saved Amount:', savedAmount);
+
+        const sign = savedAmount > 0 ? '+' : '';
+        $('#valorEconomia').text(`${sign}R$ ${savedAmount.toFixed(2)}`);
+
+        return savedAmount;
+    }
+
+    function processMonthlyData(entries, userId) {
+        const months = Array(12).fill(0).map(() => ({
+            income: 0,
+            expense: 0
+        }));
+
+        const userEntries = entries.filter(entry => entry.ownerId === userId);
+
+        userEntries.forEach(entry => {
+            try {
+                const date = new Date(parseInt(entry.date));
+                if (isNaN(date)) throw new Error('Invalid date');
+
+                const month = date.getMonth();
+                const value = parseFloat(entry.value) || 0;
+
+                if (entry.type === 'income') {
+                    months[month].income += value;
+                } else if (entry.type === 'expense') {
+                    months[month].expense += value;
+                }
+            } catch (error) {
+                console.error('Error processing entry for chart:', error, entry);
+            }
+        });
+
+        return months;
+    }
+
+    function processMonthlyExpenses(entries, userId) {
+        const expensesByCategory = {};
+        const currentMonth = new Date().getMonth();
+
+        const userEntries = entries.filter(entry =>
+            entry.ownerId === userId &&
+            entry.type === 'expense' &&
+            new Date(parseInt(entry.date)).getMonth() === currentMonth
+        );
+
+        fetch(`${JSON_SERVER_URL}/categories`)
+            .then(response => response.json())
+            .then(categories => {
+                userEntries.forEach(entry => {
+                    try {
+                        const category = categories.find(cat => 
+                            cat.id === entry.categoryId && 
+                            cat.ownerId === userId
+                        );
+                        if (category) {
+                            const categoryName = category.label;
+                            if (!expensesByCategory[categoryName]) {
+                                expensesByCategory[categoryName] = 0;
+                            }
+                            expensesByCategory[categoryName] += parseFloat(entry.value) || 0;
+                        }
+                    } catch (error) {
+                        console.error('Error processing expense:', error, entry);
+                    }
+                });
+
+                createPieChart(expensesByCategory);
+            })
+            .catch(error => {
+                console.error('Error loading categories:', error);
+            });
+    }
+
+    function createLineChart(monthlyData) {
+        const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+        const chartElement = document.getElementById('mensal');
+        if (!chartElement) {
+            console.error('Chart element not found');
+            return;
+        }
+
+        const existingChart = Chart.getChart(chartElement);
+        if (existingChart) {
+            existingChart.destroy();
+        }
+
+        new Chart(chartElement, {
+            type: 'line',
+            data: {
+                labels: monthNames,
+                datasets: [
+                    {
+                        label: 'Ganhos',
+                        data: monthlyData.map(month => month.income),
+                        borderColor: 'rgb(75, 192, 192)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        tension: 0.1
+                    },
+                    {
+                        label: 'Gastos',
+                        data: monthlyData.map(month => month.expense),
+                        borderColor: 'rgb(255, 99, 132)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        tension: 0.1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Ganhos e despesas ao longo do ano'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': R$ ';
+                                }
+                                label += context.parsed.y.toFixed(2);
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function (value) {
+                                return 'R$ ' + value.toFixed(2);
+                            }
+                        }
+                    }
                 }
             }
-        }
-    };
-
-    // Criação do gráfico 1
-    let grafico1 = new Chart(
-        document.getElementById('mensal'),
-        config1
-    );
-
-    // Função para atualizar o gráfico 1 com novos dados via JSON
-    function atualizarGrafico1(novosDados) {
-        // Atualizando os dados do gráfico
-        grafico1.data.datasets[0].data = novosDados;
-        // Atualizando o gráfico
-        grafico1.update();
+        });
     }
 
-    // Exemplo de atualização dos dados com jQuery e JSON para o gráfico 1
-    let novosDados1 = [1600, 1700, 1400, 1900, 1800, 2000];
-    setTimeout(function () {
-        atualizarGrafico1(novosDados1);
-    }, 2000); // Atualiza após 2 segundos (simulação)
-
-    // Dados iniciais para o segundo gráfico (gráfico de pizza)
-    let dados2 = {
-        labels: ['Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set'],
-        datasets: [{
-            label: 'Distribuição',
-            data: [300, 500, 100, 200, 400, 300],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    };
-
-    // Configuração do gráfico 2 (gráfico de pizza)
-    let config2 = {
-        type: 'pie',
-        data: dados2,
-        options: {
-            responsive: true
+    function createPieChart(expensesByCategory) {
+        const chartElement = document.getElementById('graficoGastos');
+        if (!chartElement) {
+            console.error('Pie chart element not found');
+            return;
         }
-    };
 
-    // Criação do gráfico 2
-    let grafico2 = new Chart(
-        document.getElementById('graficPizza'),
-        config2
-    );
+        const existingChart = Chart.getChart(chartElement);
+        if (existingChart) {
+            existingChart.destroy();
+        }
 
-    // Função para atualizar o gráfico 2 com novos dados via JSON
-    function atualizarGrafico2(novosDados2) {
-        // Atualizando os dados do gráfico 2
-        grafico2.data.datasets[0].data = novosDados2;
-        // Atualizando o gráfico
-        grafico2.update();
+        const colors = Object.keys(expensesByCategory).map((_, index) => {
+            const hue = (index * 137.508) % 360; 
+            return `hsl(${hue}, 70%, 50%)`;
+        });
+
+        new Chart(chartElement, {
+            type: 'pie',
+            data: {
+                labels: Object.keys(expensesByCategory),
+                datasets: [{
+                    data: Object.values(expensesByCategory),
+                    backgroundColor: colors,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: false,
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                const label = context.label || '';
+                                const value = context.parsed || 0;
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = ((value / total) * 100).toFixed(1);
+                                return `${label}: R$ ${value.toFixed(2)} (${percentage}%)`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
     }
 
-    // Exemplo de atualização dos dados com jQuery e JSON para o gráfico 2
-    let novosDados2 = [500, 400, 300, 200, 100, 600];
-    setTimeout(function () {
-        atualizarGrafico2(novosDados2);
-    }, 2000); // Atualiza após 2 segundos (simulação)
-    */
+
+    getdata(function (data) {
+        savingMonth(data.entries, loggedInUser.id);
+        const monthlyData = processMonthlyData(data.entries, loggedInUser.id);
+        createLineChart(monthlyData);
+        processMonthlyExpenses(data.entries, loggedInUser.id);
+    });
+
+    // Navigation
+    $('#metas').click(function () {
+        window.location.href = 'index.html';
+    });
 });

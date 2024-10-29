@@ -10,8 +10,6 @@
   * [Rondinelly Martins Silva ](https://github.com/Rondi17)
   * [Victor Rabelo Souza](https://github.com/VictorRS7)
 
-
-
 A documentação do projeto é estruturada da seguinte forma:
 
 - [Introdução](#introdução)
