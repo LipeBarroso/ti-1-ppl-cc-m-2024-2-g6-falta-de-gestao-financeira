@@ -79,6 +79,8 @@
   overflow-y: hidden;
   overflow-x: auto;
   padding: .25rem;
+  padding-bottom: .5rem;
+  color-scheme: dark;
 }
 
 .form__field__icons__item {
