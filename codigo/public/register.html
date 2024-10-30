@@ -5,97 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FinUp | Login</title>
     <link rel="stylesheet" href="assets/css/globals.css" />
-    <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/register.css" />
     <link rel="stylesheet" href="assets/css/form.css" />
   </head>
   <body>
-    <!-- Navbar -->
-    <header class="navbar">
-      <nav class="navbar__container">
-        <a class="navbar__logo" href="/">
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="m13.11 7.664 1.78 2.672" />
-            <path d="m14.162 12.788-3.324 1.424" />
-            <path d="m20 4-6.06 1.515" />
-            <path d="M3 3v16a2 2 0 0 0 2 2h16" />
-            <circle cx="12" cy="6" r="2" />
-            <circle cx="16" cy="12" r="2" />
-            <circle cx="9" cy="15" r="2" />
-          </svg>
-
-          <span>FinUp</span>
-        </a>
-      </nav>
-    </header>
-
     <main>
       <div class="card">
-        <!-- Login Form -->
-        <form class="form" id="register-form" method="post">
-          <div class="form__header">
-            <h2>Entre com sua conta!</h2>
+        <div class="form">
+          <div class="container" style="background-color: red">
+            <span class="info">Mês Atual</span>
+            <span class="value">-R$ 957,00</span>
           </div>
-          <div class="form__field">
-            <label class="form__field__label" for="name">Nome</label>
-            <input
-              class="form__field__input"
-              type="text"
-              name="name"
-              id="name"
-              autocomplete="name"
-              required
-            />
+
+          <div class="container" style="background-color: green">
+            <span class="info">Último mês</span>
+            <span class="value">+R$ 662,00</span>
           </div>
-          <div class="form__field">
-            <label class="form__field__label" for="email">Email</label>
-            <input
-              class="form__field__input"
-              type="email"
-              name="email"
-              id="email"
-              autocomplete="email"
-              required
-            />
+
+          <div id="pesquisar">
+            <img src="assets/img/icon/icones/tiroaoalvo.png" id="btnBusca" alt="Buscar"
+            class="searchImg"/>
+            <input type="text" id="Pesquisar" placeholder="pesquisar"/>
+            <img src="assets/img/icon/icones/loupe.png" alt="loupe"
+            class="loupe">
           </div>
-          <div class="form__field">
-            <label class="form__field__label" for="password">Senha</label>
-            <input
-              class="form__field__input"
-              type="password"
-              name="password"
-              id="password"
-              required
-            />
-          </div>
-          <div class="form__field">
-            <label class="form__field__label" for="confirm-password">
-              Confirme Senha
-            </label>
-            <input
-              class="form__field__input"
-              type="password"
-              name="confirm-password"
-              id="confirm-password"
-              required
-            />
-          </div>
-          <div class="form__footer">
-            <a href="./login.html">Já possui uma conta? Faça login</a>
-            <button class="form__submit" type="submit">Criar Conta</button>
-          </div>
-        </form>
       </div>
     </main>
-
+    <main>
+      <div class="card">
+        <div class="form">
+          <h1>Registros</h1>
+          <div class="titulo1">
+          <h3>24 de Setembro de 2024 </h3>
+          <h3 style="color: green;">+R$ 230,40</h3>
+          </div>
+          <div class="container2">
+            <img src="assets/img/icon/icones/compra.png" class="searchImg">
+            <span class="info">Padaria do Zé - Salgado</span>
+            <span class="value">
+              <div style="color: red;">-R$ 06,00</div>
+            </span>
+          </div>
+          <div class="container2">
+            <img src="assets/img/icon/icones/casa.png" class="searchImg">
+            <span class="info">Aluguel</span>
+            <span class="value">
+               <div style="color: red;">-R$ 700,00</div>
+            </span>
+          </div>
+          <div class="container2">
+            <img src="assets/img/icon/icones/compra.png" class="searchImg">
+            <span class="info">Conta de Luz</span>
+            <span class="value">
+              <div style="color: red;">-R$ 250,00</div>
+            </span>
+         </div>
+          <div class="container2">
+            <img src="assets/img/icon/icones/salario.png" class="searchImg">
+            <span class="info">Salario</span>
+            <span class="value">
+               <div style="color: green;">+R$ 1.412,00</div>
+            </span>
+          </div>
+          <div class="container2">
+            <img src="assets/img/icon/icones/compra.png" class="searchImg">
+            <span class="info">Padaria do Zé - Salgado</span>
+            <span class="value">
+              <div style="color: red;">-R$ 06,00</div>
+            </span>
+        </div>
+      </div>
+    </main>
     <!-- Javascript -->
     <script src="assets/js/register.js" type="module"></script>
   </body>
