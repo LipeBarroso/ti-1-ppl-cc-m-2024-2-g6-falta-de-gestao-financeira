@@ -31,6 +31,14 @@
       "password": "123456",
       "createdAt": 1704067200000,
       "updatedAt": 1704067200000
+    },
+    {
+      "name": "1",
+      "email": "1@1",
+      "password": "1",
+      "createdAt": 1730304796753,
+      "updatedAt": 1730304796753,
+      "id": 5
     }
   ],
   "categories": [
@@ -39,9 +47,9 @@
       "ownerId": 1,
       "label": "Mercado",
       "type": "expense",
-      "icon": "shopping-cart",
+      "icon": "basket",
       "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
+      "updatedAt": 1730314806784
     },
     {
       "id": 2,
@@ -57,36 +65,36 @@
       "ownerId": 1,
       "label": "Transporte",
       "type": "expense",
-      "icon": "car",
+      "icon": "bike",
       "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
+      "updatedAt": 1730314829857
     },
     {
       "id": 4,
       "ownerId": 1,
       "label": "Lazer",
       "type": "expense",
-      "icon": "music",
+      "icon": "drama",
       "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
+      "updatedAt": 1730314837579
     },
     {
       "id": 5,
       "ownerId": 1,
       "label": "Saúde",
       "type": "expense",
-      "icon": "heart",
+      "icon": "dumbbell",
       "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
+      "updatedAt": 1730314847305
     },
     {
       "id": 6,
       "ownerId": 1,
       "label": "Salário",
       "type": "income",
-      "icon": "wallet",
+      "icon": "briefcase",
       "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
+      "updatedAt": 1730314874058
     },
     {
       "id": 7,
@@ -195,6 +203,15 @@
       "icon": "trending-up",
       "createdAt": 1704067200000,
       "updatedAt": 1704067200000
+    },
+    {
+      "ownerId": 1,
+      "label": "Jogos",
+      "type": "expense",
+      "icon": "gamepad",
+      "createdAt": 1730314889341,
+      "updatedAt": 1730314889341,
+      "id": 19
     }
   ],
   "entries": [
@@ -205,7 +222,7 @@
       "label": "Salário Janeiro",
       "type": "income",
       "date": "1704067200000",
-      "value": 5000.0
+      "value": 5000
     },
     {
       "id": 2,
@@ -223,7 +240,7 @@
       "label": "Aluguel Janeiro",
       "type": "expense",
       "date": "1704067200000",
-      "value": 1500.0
+      "value": 1500
     },
     {
       "id": 4,
@@ -232,7 +249,7 @@
       "label": "Combustível",
       "type": "expense",
       "date": "1704240000000",
-      "value": 300.0
+      "value": 300
     },
     {
       "id": 5,
@@ -241,7 +258,7 @@
       "label": "Cinema",
       "type": "expense",
       "date": "1704326400000",
-      "value": 80.0
+      "value": 80
     },
     {
       "id": 6,
@@ -250,9 +267,8 @@
       "label": "Farmácia",
       "type": "expense",
       "date": "1704412800000",
-      "value": 150.0
+      "value": 150
     },
-
     {
       "id": 7,
       "ownerId": 2,
@@ -260,7 +276,7 @@
       "label": "Projeto Website",
       "type": "income",
       "date": "1704067200000",
-      "value": 3000.0
+      "value": 3000
     },
     {
       "id": 8,
@@ -269,7 +285,7 @@
       "label": "Restaurante",
       "type": "expense",
       "date": "1704153600000",
-      "value": 200.0
+      "value": 200
     },
     {
       "id": 9,
@@ -278,7 +294,7 @@
       "label": "Internet",
       "type": "expense",
       "date": "1704067200000",
-      "value": 120.0
+      "value": 120
     },
     {
       "id": 10,
@@ -287,7 +303,7 @@
       "label": "Conta de Luz",
       "type": "expense",
       "date": "1704240000000",
-      "value": 180.0
+      "value": 180
     },
     {
       "id": 11,
@@ -296,7 +312,7 @@
       "label": "Academia",
       "type": "expense",
       "date": "1704326400000",
-      "value": 100.0
+      "value": 100
     },
     {
       "id": 12,
@@ -305,9 +321,8 @@
       "label": "Curso Online",
       "type": "expense",
       "date": "1704412800000",
-      "value": 250.0
+      "value": 250
     },
-
     {
       "id": 13,
       "ownerId": 3,
@@ -315,7 +330,7 @@
       "label": "Dividendos",
       "type": "income",
       "date": "1704067200000",
-      "value": 2000.0
+      "value": 2000
     },
     {
       "id": 14,
@@ -324,7 +339,7 @@
       "label": "Condomínio",
       "type": "expense",
       "date": "1704067200000",
-      "value": 500.0
+      "value": 500
     },
     {
       "id": 15,
@@ -333,7 +348,7 @@
       "label": "Roupas",
       "type": "expense",
       "date": "1704153600000",
-      "value": 300.0
+      "value": 300
     },
     {
       "id": 16,
@@ -342,7 +357,7 @@
       "label": "Uber",
       "type": "expense",
       "date": "1704240000000",
-      "value": 150.0
+      "value": 150
     },
     {
       "id": 17,
@@ -351,7 +366,7 @@
       "label": "Delivery",
       "type": "expense",
       "date": "1704326400000",
-      "value": 100.0
+      "value": 100
     },
     {
       "id": 18,
@@ -362,7 +377,6 @@
       "date": "1704412800000",
       "value": 55.9
     },
-
     {
       "id": 271,
       "ownerId": 1,
@@ -370,7 +384,7 @@
       "label": "Salário Outubro",
       "type": "income",
       "date": "1696118400000",
-      "value": 5000.0
+      "value": 5000
     },
     {
       "id": 272,
@@ -379,7 +393,7 @@
       "label": "Supermercado",
       "type": "expense",
       "date": "1696204800000",
-      "value": 850.0
+      "value": 850
     },
     {
       "id": 273,
@@ -388,7 +402,7 @@
       "label": "Aluguel Outubro",
       "type": "expense",
       "date": "1696118400000",
-      "value": 1500.0
+      "value": 1500
     },
     {
       "id": 274,
@@ -397,7 +411,7 @@
       "label": "Combustível",
       "type": "expense",
       "date": "1696291200000",
-      "value": 320.0
+      "value": 320
     },
     {
       "id": 275,
@@ -406,7 +420,7 @@
       "label": "Show",
       "type": "expense",
       "date": "1696377600000",
-      "value": 150.0
+      "value": 150
     },
     {
       "id": 276,
@@ -415,7 +429,7 @@
       "label": "Consulta Médica",
       "type": "expense",
       "date": "1696464000000",
-      "value": 200.0
+      "value": 200
     },
     {
       "id": 277,
@@ -424,7 +438,7 @@
       "label": "Projeto App",
       "type": "income",
       "date": "1696118400000",
-      "value": 4000.0
+      "value": 4000
     },
     {
       "id": 278,
@@ -433,7 +447,7 @@
       "label": "Restaurante",
       "type": "expense",
       "date": "1696204800000",
-      "value": 180.0
+      "value": 180
     },
     {
       "id": 279,
@@ -442,7 +456,7 @@
       "label": "Internet",
       "type": "expense",
       "date": "1696118400000",
-      "value": 120.0
+      "value": 120
     },
     {
       "id": 280,
@@ -451,7 +465,7 @@
       "label": "Conta de Luz",
       "type": "expense",
       "date": "1696291200000",
-      "value": 200.0
+      "value": 200
     },
     {
       "id": 281,
@@ -460,7 +474,7 @@
       "label": "Academia",
       "type": "expense",
       "date": "1696377600000",
-      "value": 100.0
+      "value": 100
     },
     {
       "id": 282,
@@ -469,7 +483,7 @@
       "label": "Livros",
       "type": "expense",
       "date": "1696464000000",
-      "value": 150.0
+      "value": 150
     },
     {
       "id": 283,
@@ -478,7 +492,7 @@
       "label": "Dividendos",
       "type": "income",
       "date": "1696118400000",
-      "value": 2500.0
+      "value": 2500
     },
     {
       "id": 284,
@@ -487,7 +501,7 @@
       "label": "Condomínio",
       "type": "expense",
       "date": "1696118400000",
-      "value": 500.0
+      "value": 500
     }
   ],
   "goals": [

@@ -1,38 +1,40 @@
+export const ICONS_NAMES = [
+  "plane",
+  "utensils",
+  "tent-tree",
+  "landmark",
+  "laptop",
+  "graduation",
+  "gamepad",
+  "gift",
+  "dumbbell",
+  "drama",
+  "clapperboard",
+  "chart-spline",
+  "cigarette",
+  "church",
+  "chef",
+  "cat",
+  "candy",
+  "cake",
+  "briefcase",
+  "bike",
+  "beef",
+  "beer",
+  "shopping",
+  "shirt",
+  "cart",
+  "basket",
+];
+
 export function createIconsSelector() {
   const iconsLists = document.getElementsByClassName("form__field__icons");
-
-  const ICONS_NAMES = [
-    "plane",
-    "utensils",
-    "tent-tree",
-    "landmark",
-    "laptop",
-    "graduation",
-    "gamepad",
-    "gift",
-    "dumbbell",
-    "drama",
-    "clapperboard",
-    "chart-spline",
-    "cigarette",
-    "church",
-    "chef",
-    "cat",
-    "candy",
-    "cake",
-    "briefcase",
-    "bike",
-    "beef",
-    "beer",
-    "shopping",
-    "shirt",
-    "cart",
-    "basket",
-  ];
 
   if (!iconsLists && iconsLists.length <= 0) return;
 
   for (const selector of iconsLists) {
+    const id = selector.getAttribute("data-for") || "";
+
     selector.insertAdjacentHTML(
       "beforeend",
       `
@@ -42,7 +44,7 @@ export function createIconsSelector() {
           type="radio"
           name="icon"
           data-icon-name="none"
-          id="create-category-form-icon--none"
+          id="${id}-icon--none"
           checked
         />
         <img
@@ -64,7 +66,7 @@ export function createIconsSelector() {
             type="radio"
             name="icon"
             data-icon-name="${iconName}"
-            id="create-category-form-icon--${iconName}"
+            id="${id}-icon--${iconName}"
           />
           <img
             class="form__field__icons__item__image"
