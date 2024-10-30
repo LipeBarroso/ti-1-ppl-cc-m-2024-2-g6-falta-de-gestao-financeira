@@ -489,37 +489,38 @@
       "date": "1696118400000",
       "value": 500.00
     }
-  ],
-  "goals": [
-    {
-      "id": 1,
-      "ownerId": 1,
-      "categoryId": 1,
-      "label": "Reduzir gastos com mercado",
-      "type": "expense",
-      "targetValue": 700.00,
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    },
-    {
-      "id": 2,
-      "ownerId": 2,
-      "categoryId": 3,
-      "label": "Meta freelance mensal",
-      "type": "income",
-      "targetValue": 3000.00,
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    },
-    {
-      "id": 3,
-      "ownerId": 3,
-      "categoryId": 5,
-      "label": "Meta investimentos",
-      "type": "income",
-      "targetValue": 2500.00,
-      "createdAt": 1704067200000,
-      "updatedAt": 1704067200000
-    }
-  ]
+"goals": [
+        {
+            "id": 1,
+            "ownerId": 1,
+            "label": "Padaria",
+            "type": "income",
+            "category": "Mercado",
+            "valor": "R$ 200,00 a.m."
+        },
+        {
+            "id": 2,
+            "ownerId": 1,
+            "label": "Transporte",
+            "type": "expense",
+            "category": "Transporte",
+            "valor": "R$ 10,00 d."
+        },
+        {
+            "id": 3,
+            "ownerId": 1,
+            "label": "Serviços",
+            "type": "expense",
+            "category": "Serviços",
+            "valor": "R$ 60,00 a.m."
+        },
+        {
+            "id": 4,
+            "ownerId": 1,
+            "label": "Compras",
+            "type": "expense",
+            "category": "Compras",
+            "valor": "R$ 400,00 a.m."
+        }
+    ]
 }
