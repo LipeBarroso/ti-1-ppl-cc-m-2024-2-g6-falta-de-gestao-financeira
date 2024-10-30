@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Meta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="modal">
+    <div class="modal-header">
+        <h2>Criar Meta</h2>
+        <button class="close-button" onclick="closeModal()">&#x2715;</button>
+    </div>
+
+    <form id="metaForm">
+        <div class="input-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder="Transporte" required>
+        </div>
+
+        <div class="input-group">
+            <label for="valor">Valor</label>
+            <input type="text" id="valor" placeholder="R$ 10,00" required>
+        </div>
+
+        <div class="input-group">
+            <label for="tempo">Tempo</label>
+            <select id="tempo" required>
+                <option value="diária">diária</option>
+                <option value="semanal">semanal</option>
+                <option value="mensal">mensal</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="icone">Ícone</label>
+            <div class="icon-selector">
+                <button type="button" onclick="selectIcon('basket')">&lt;</button>
+                <img src="imagens/Captura de tela 2024-10-24 181719.png" alt="Cesta" id="icon1">
+                <img src="imagens/Captura de tela 2024-10-24 181748.png" alt="Carro" id="icon2" class="selected">
+                <img src="imagens/Captura de tela 2024-10-24 181803.png" alt="Maleta" id="icon3">
+                <img src="imagens/Captura de tela 2024-10-24 181817.png" alt="Dinheiro" id="icon4">
+                <button type="button" onclick="selectIcon('next')">&gt;</button>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <button type="button" class="cancel-button" onclick="cancel()">Cancelar</button>
+            <button type="submit" class="confirm-button">Confirmar</button>
+        </div>
+    </form>
+</div>
+
+<script src="scripts.js"></script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metas Financeiras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="metas-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
