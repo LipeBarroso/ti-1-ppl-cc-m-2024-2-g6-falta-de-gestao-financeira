@@ -48,27 +48,61 @@ document
     cancel();
   });
 
-// função para criar a meta
-function criarMeta({ nome, valor, tempo, icone }) {
-  const user = auth();
+let metas = [];
 
-  const time = new Date().getTime();
+// Função para exibir as metas
+function exibirMetas() {
+    const metasList = document.querySelector('.form__field__icons'); // Seleciona a lista de ícones
+    metasList.innerHTML = ''; // Limpa a lista antes de adicionar as metas
 
-  // fetch("/categories", {
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/json" },
-  //   body: JSON.stringify({
-  //     ownerId: user.id,
-  //     name: nome,
-  //     time: tempo,
-  //     icon: icone,
-  //     value: valor,
-  //     createdAt: time,
-  //     updatedAt: time,
-  //   }),
-  // });
+    metas.forEach(meta => {
+        const li = document.createElement('li');
+        li.textContent = `${meta.nome} - R$${meta.valor} (${meta.tempo})`;
 
-  // precisa retornar a meta criada
+        // Botão de exclusão
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Excluir';
+        deleteButton.onclick = () => {
+            excluirMeta(meta.id);
+        };
+        li.appendChild(deleteButton);
+
+        metasList.appendChild(li);
+    });
 }
 
+// Função para excluir uma meta
+function excluirMeta(id) {
+    const index = metas.findIndex(meta => meta.id === id);
+    if (index !== -1) {
+        metas.splice(index, 1); // Remove a meta do array
+        exibirMetas(); // Atualiza a exibição
+    }
+}
+
+// Função para criar a meta
+function criarMeta(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    const nome = document.getElementById('nome').value;
+    const valor = parseFloat(document.getElementById('valor').value.replace('R$', '').replace(',', '.').trim());
+    const tempo = document.getElementById('tempo').value;
+
+    // Gera um ID único para a nova meta
+    const id = metas.length ? metas[metas.length - 1].id + 1 : 1;
+
+    // Adiciona a nova meta ao array
+    metas.push({ id, nome, valor, tempo });
+    exibirMetas(); // Atualiza a exibição
+
+    // Limpa os campos do formulário
+    document.getElementById('metaForm').reset();
+}
+
+document.getElementById('metaForm').addEventListener('submit', criarMeta);
+
+// Inicializa a exibição das metas
+exibirMetas();
+
 createIconsSelector();
+
