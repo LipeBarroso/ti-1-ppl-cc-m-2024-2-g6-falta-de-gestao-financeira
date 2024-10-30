@@ -522,5 +522,36 @@
             "category": "Compras",
             "valor": "R$ 400,00 a.m."
         }
+    ],
+    "metas": [
+      {
+        "id": 1,
+        "nome": "viagem",
+        "valor": 3000,
+        "tempo": "mensal",
+        "icone": "Carro"
+      },
+      {
+        "id": 2,
+        "nome": "Mercado",
+        "valor": 150,
+        "tempo": "semanal",
+        "icone": "cesto"
+      },
+      {
+        "id": 3,
+        "nome": "Fundo de emergência",
+        "valor": 2500,
+        "tempo": "anual",
+        "icone": "dinheiro"
+      },
+      {
+        "id": 4,
+        "nome": "dividas",
+        "valor": 1500,
+        "tempo": "mensal",
+        "icone": "maleta"
+      } 
     ]
 }
+
